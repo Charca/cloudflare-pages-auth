@@ -2,7 +2,9 @@
 
 Static site that is password-protected when deployed to Cloudflare Pages. This is a SvelteKit project, but the password-protection works independently of the framework you use.
 
-## Instructions
+![Screenshot](screenshot.png)
+
+## 🚀 Getting Started
 
 If you want to password-protect your own Cloudflare Pages site, you'll need to:
 
@@ -11,7 +13,7 @@ If you want to password-protect your own Cloudflare Pages site, you'll need to:
 
 The next time you deploy your site, it will be password-protected! 🎉
 
-## Running locally
+## 🛠 Running Locally
 
 Since this is a SvelteKit project, first run the build command to generate the static site:
 
@@ -27,7 +29,7 @@ npx wrangler pages dev build -b CFP_PASSWORD=test
 
 Notice that you'll need to pass the `CFP_PASSWORD` environment variable when running the CLI command. If you don't pass it, the site will not be password-protected.
 
-## Customization
+## 💅 Customization
 
 - The `functions/template.ts` file contains the HTML template of the login page. You can customize it to your liking.
 - The `functions/constants.ts` contains some other things you can customize, like the expiration of the auth cookie, or the list of paths that don't require authentication.
