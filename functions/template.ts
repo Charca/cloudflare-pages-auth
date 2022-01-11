@@ -1,5 +1,5 @@
 export function getTemplate({ withError }: { withError: boolean }): string {
-	return `
+  return `
   <!doctype html>
   <html lang="en" data-theme="dark">
 

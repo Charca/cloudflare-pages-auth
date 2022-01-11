@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="" />
-		<link rel="icon" href="%svelte.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%svelte.head%
-	</head>
-	<body>
-		<div id="svelte">%svelte.body%</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="%svelte.assets%/favicon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css" />
+    %svelte.head%
+  </head>
+  <body>
+    <header class="container">
+      <hgroup>
+        <h1>Welcome to the <mark>secret</mark> site</h1>
+        <h2>All pages on this site are password-protected.</h2>
+      </hgroup>
+      <nav>
+        <ul>
+          <li>Navigation:</li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container" id="svelte">%svelte.body%</main>
+    <footer class="container">
+      <small>
+        Made by <a href="https://twitter.com/charca" target="_blank">Charca</a>
+        • Styles by
+        <a href="https://picocss.com" target="_blank">Pico</a>
+        • Check out the
+        <a href="https://github.com/Charca/cloudflare-pages-auth" target="_blank">source code</a>
+      </small>
+    </footer>
+  </body>
 </html>
