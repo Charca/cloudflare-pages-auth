@@ -1,38 +1,33 @@
-# create-svelte
+# cloudflare-pages-auth
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+Static site that is password-protected when deployed to Cloudflare Pages. This is a SvelteKit project, but the password-protection works independently of the framework you use.
 
-## Creating a project
+## Instructions
 
-If you're seeing this, you've probably already done this step. Congrats!
+If you want to password-protect your own Cloudflare Pages site, you'll need to:
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+1. Copy the contents of the `functions` directory from this repo into your own project.
+2. Add a `CFP_PASSWORD` environment variable to your Cloudflare Pages dashboard with the password you want to use.
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+The next time you deploy your site, it will be password-protected! 🎉
 
-> Note: the `@next` is temporary
+## Running locally
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+Since this is a SvelteKit project, first run the build command to generate the static site:
 
 ```bash
 npm run build
 ```
 
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+Then, you'll need to use the [wrangler](https://github.com/cloudflare/wrangler2) CLI to run the site (with functions) locally:
+
+```bash
+npx wrangler pages dev build -b CFP_PASSWORD=test
+```
+
+Notice that you'll need to pass the `CFP_PASSWORD` environment variable when running the CLI command. If you don't pass it, the site will not be password-protected.
+
+## Customization
+
+- The `functions/template.ts` file contains the HTML template of the login page. You can customize it to your liking.
+- The `functions/constants.ts` contains some other things you can customize, like the expiration of the auth cookie, or the list of paths that don't require authentication.
