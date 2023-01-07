@@ -23,7 +23,7 @@ export async function onRequest(context: {
     return await next();
   } else {
     // No cookie or incorrect hash in cookie. Redirect to login.
-    return new Response(getTemplate({ withError: error === '1' }), {
+    return new Response(getTemplate({ redirectPath: pathname, withError: error === '1' }), {
       headers: {
         'content-type': 'text/html'
       }
