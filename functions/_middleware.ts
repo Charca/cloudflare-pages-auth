@@ -25,7 +25,8 @@ export async function onRequest(context: {
     // No cookie or incorrect hash in cookie. Redirect to login.
     return new Response(getTemplate({ redirectPath: pathname, withError: error === '1' }), {
       headers: {
-        'content-type': 'text/html'
+        'content-type': 'text/html',
+        'cache-control': 'no-cache'
       }
     });
   }
