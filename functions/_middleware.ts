@@ -15,6 +15,8 @@ export async function onRequest(context: {
 
   if (
     cookie.includes(cookieKeyValue) ||
+    // allow the request to cfp_login only if it is a POST request
+    (request.method == "POST" && pathname === '/cfp_login') ||
     CFP_ALLOWED_PATHS.includes(pathname) ||
     !env.CFP_PASSWORD
   ) {
