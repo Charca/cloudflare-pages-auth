@@ -26,6 +26,7 @@ export function getTemplate({
           min-height: calc(100vh - 7rem);
           padding: 1rem 0;
           max-width: 600px;
+          margin: 0 auto;
         }
 
         .error {
