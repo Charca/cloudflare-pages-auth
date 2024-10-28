@@ -13,6 +13,8 @@ If you want to password-protect your own Cloudflare Pages site, you'll need to:
 
 The next time you deploy your site, it will be password-protected! 🎉
 
+> ⚠️ Note: You might want to update your Cloudflare project settings to be "[Failed closed](https://developers.cloudflare.com/pages/functions/pricing/#fail-closed)". Otherwise, your site will be unprotected if you reach your daily limit of Function requests. Thanks Thomas for letting me know about this!
+
 ## 🛠 Running Locally
 
 Since this is a SvelteKit project, first run the build command to generate the static site:
