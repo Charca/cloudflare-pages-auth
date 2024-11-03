@@ -1,5 +1,4 @@
-import { CFP_ALLOWED_PATHS } from './constants';
-import { getCookieKeyValue } from './utils';
+import { getCookieKeyValue, isPathAllowed } from './utils';
 import { getTemplate } from './template';
 
 export async function onRequest(context: {
@@ -15,7 +14,7 @@ export async function onRequest(context: {
 
   if (
     cookie.includes(cookieKeyValue) ||
-    CFP_ALLOWED_PATHS.includes(pathname) ||
+    isPathAllowed(pathname) ||
     !env.CFP_PASSWORD
   ) {
     // Correct hash in cookie, allowed path, or no password set.
